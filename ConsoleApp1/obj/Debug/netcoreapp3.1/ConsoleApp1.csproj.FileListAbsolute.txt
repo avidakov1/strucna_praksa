@@ -10,3 +10,4 @@ C:\Users\avida\Desktop\strucna praksa\ConsoleApp1\obj\Debug\netcoreapp3.1\Consol
 C:\Users\avida\Desktop\strucna praksa\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
 C:\Users\avida\Desktop\strucna praksa\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
 C:\Users\avida\Desktop\strucna praksa\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
+C:\Users\avida\Desktop\strucna praksa\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csprojAssemblyReference.cache
