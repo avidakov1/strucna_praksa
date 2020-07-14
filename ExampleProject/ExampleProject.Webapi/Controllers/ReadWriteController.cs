@@ -48,15 +48,18 @@ namespace ExampleProject.Webapi.Controllers
         {
             Emps = newEmps;
         }
-        public static void changeEmp(string Id, EmployeeInfo values)
+        public static int changeEmp(string Id, EmployeeInfo values)
         {
-            Emps[Emps.FindIndex(r => r.MyId(Id))].ReplaceInfo(values);
-            return;
+            int T = Emps.FindIndex(r => r.MyId(Id));
+            Emps[T].ReplaceInfo(values);
+            return T;
         }
 
-        public static void deleteId(string Id)
+        public static bool deleteId(string Id)
         {
+            List<Employee> OldEmps = new List<Employee>(Emps);
             Emps.RemoveAll(r => r.MyId(Id));
+            return OldEmps != Emps;
         }
     }
     
@@ -76,32 +79,41 @@ namespace ExampleProject.Webapi.Controllers
                     return employee;
                 }
             }
+            Request.CreateResponse(HttpStatusCode.BadRequest, "Bad Request");
             return null;
         }
 
         // POST: api/ReadWrite
         [HttpPost]
-        public void Post([FromBody]EmployeeInfo value)
+        public HttpResponseMessage Post([FromBody]EmployeeInfo value)
         {
             if (value != null)
             {
                 int Id = Employees.getEmps().Count;
                 Employee newEmp = new Employee(Id.ToString(), value.Name, value.WorkPosition, value.MonthlyPay);
                 Employees.AddEmp(newEmp);
-                Debug.WriteLine(Employees.getEmps().Count);
+                return Request.CreateErrorResponse(HttpStatusCode.OK, "OK");
             }
-            return;
+            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
         }
 
-        public void Put(string id, [FromBody]EmployeeInfo value)
+        public HttpResponseMessage Put(string id, [FromBody]EmployeeInfo value)
         {
-            Employees.changeEmp(id, value);
-            return;
+            int t = Employees.changeEmp(id, value);
+            if(t!= -1)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.OK, "OK");
+            }
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "NotFound");
         }
 
-        public void Delete(string id)
+        public HttpResponseMessage Delete(string id)
         {
-            Employees.deleteId(id);
+            if (Employees.deleteId(id))
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.OK, "OK");
+            }
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "NotFound");
         }
     }
 
