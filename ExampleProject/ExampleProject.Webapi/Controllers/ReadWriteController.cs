@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace ExampleProject.Webapi.Controllers
 {
+    
     public class EmployeeInfo
     {
         public string Name { get; set; }
@@ -16,7 +17,7 @@ namespace ExampleProject.Webapi.Controllers
     }
     public class Employee
     {
-        private string Id;
+        public string Id;
         public string Name = "John Doe";
         public string WorkPosition = "Salesman";
         public float MonthlyPay = 3000;
@@ -61,13 +62,11 @@ namespace ExampleProject.Webapi.Controllers
     
     public class ReadWriteController : ApiController
     {
-        // GET: api/ReadWrite
         public IEnumerable<Employee> Get()
         {
             return Employees.getEmps();
         }
 
-        // GET: api/ReadWrite/5
         public Employee Get(string Id)
         {
             foreach (Employee employee in Employees.getEmps())
@@ -94,14 +93,12 @@ namespace ExampleProject.Webapi.Controllers
             return;
         }
 
-        // PUT: api/ReadWrite/5
         public void Put(string id, [FromBody]EmployeeInfo value)
         {
             Employees.changeEmp(id, value);
             return;
         }
 
-        // DELETE: api/ReadWrite/5
         public void Delete(string id)
         {
             Employees.deleteId(id);
