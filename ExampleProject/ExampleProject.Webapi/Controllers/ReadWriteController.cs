@@ -49,14 +49,13 @@ namespace ExampleProject.Webapi.Controllers
         }
         public static void changeEmp(string Id, EmployeeInfo values)
         {
-            foreach (Employee employee in Employees.getEmps())
-            {
-                if (employee.MyId(Id))
-                {
-                    employee.ReplaceInfo(values);
-                }
-            }
+            Emps[Emps.FindIndex(r => r.MyId(Id))].ReplaceInfo(values);
             return;
+        }
+
+        public static void deleteId(string Id)
+        {
+            Emps.RemoveAll(r => r.MyId(Id));
         }
     }
     
@@ -103,8 +102,9 @@ namespace ExampleProject.Webapi.Controllers
         }
 
         // DELETE: api/ReadWrite/5
-        public void Delete(int id)
+        public void Delete(string id)
         {
+            Employees.deleteId(id);
         }
     }
 
