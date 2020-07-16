@@ -1,0 +1,6 @@
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model.Common\bin\Debug\ExampleProject.Model.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model.Common\bin\Debug\ExampleProject.Model.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model.Common\obj\Debug\ExampleProject.Model.Common.csprojAssemblyReference.cache
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model.Common\obj\Debug\ExampleProject.Model.Common.csproj.CoreCompileInputs.cache
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model.Common\obj\Debug\ExampleProject.Model.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model.Common\obj\Debug\ExampleProject.Model.Common.pdb

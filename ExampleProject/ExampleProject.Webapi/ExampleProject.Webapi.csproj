@@ -103,6 +103,24 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExampleProject.Model.Common\ExampleProject.Model.Common.csproj">
+      <Project>{1d526042-03e1-43c0-b43b-47a8decbb523}</Project>
+      <Name>ExampleProject.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExampleProject.Model\ExampleProject.Model.csproj">
+      <Project>{238405ab-3754-4893-9164-00501c6b1622}</Project>
+      <Name>ExampleProject.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExampleProject.Service.Common\ExampleProject.Service.Common.csproj">
+      <Project>{47311afc-987b-4d48-b5fc-e9fca81a327c}</Project>
+      <Name>ExampleProject.Service.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExampleProject.Service\ExampleProject.Service.csproj">
+      <Project>{8fb05be6-8b3e-41af-86f5-c9daac0ede77}</Project>
+      <Name>ExampleProject.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

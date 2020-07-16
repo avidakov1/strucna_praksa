@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8FB05BE6-8B3E-41AF-86F5-C9DAAC0EDE77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExampleProject.Service</RootNamespace>
+    <AssemblyName>ExampleProject.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PersonService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExampleProject.Model.Common\ExampleProject.Model.Common.csproj">
+      <Project>{1d526042-03e1-43c0-b43b-47a8decbb523}</Project>
+      <Name>ExampleProject.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExampleProject.Model\ExampleProject.Model.csproj">
+      <Project>{238405ab-3754-4893-9164-00501c6b1622}</Project>
+      <Name>ExampleProject.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExampleProject.Repository.Common\ExampleProject.Repository.Common.csproj">
+      <Project>{6c7ed7e2-d0f4-4977-8938-61994ca90aa4}</Project>
+      <Name>ExampleProject.Repository.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExampleProject.Repository\ExampleProject.Repository.csproj">
+      <Project>{0a8c6d64-6a45-4811-a8bd-1d2ea9bacfc6}</Project>
+      <Name>ExampleProject.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExampleProject.Service.Common\ExampleProject.Service.Common.csproj">
+      <Project>{47311afc-987b-4d48-b5fc-e9fca81a327c}</Project>
+      <Name>ExampleProject.Service.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

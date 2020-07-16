@@ -1,0 +1,17 @@
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Service.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Service.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Model.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Model.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Repository.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Repository.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Service.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Model.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Model.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Repository.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Repository.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\bin\Debug\ExampleProject.Service.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\obj\Debug\ExampleProject.Service.csprojAssemblyReference.cache
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\obj\Debug\ExampleProject.Service.csproj.CoreCompileInputs.cache
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\obj\Debug\ExampleProject.Service.csproj.CopyComplete
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\obj\Debug\ExampleProject.Service.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service\obj\Debug\ExampleProject.Service.pdb

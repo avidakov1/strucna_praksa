@@ -46,3 +46,15 @@ C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\r
 C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\roslyn\System.Memory.dll
 C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Model.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Model.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Service.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Service.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Repository.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Repository.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Model.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Model.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Service.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Service.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Repository.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Webapi\bin\ExampleProject.Repository.Common.pdb

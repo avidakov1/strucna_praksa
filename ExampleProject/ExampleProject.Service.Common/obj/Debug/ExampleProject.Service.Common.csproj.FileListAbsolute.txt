@@ -1,0 +1,13 @@
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\bin\Debug\ExampleProject.Service.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\bin\Debug\ExampleProject.Service.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\bin\Debug\ExampleProject.Model.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\bin\Debug\ExampleProject.Model.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\bin\Debug\ExampleProject.Repository.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\bin\Debug\ExampleProject.Model.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\bin\Debug\ExampleProject.Model.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\bin\Debug\ExampleProject.Repository.Common.pdb
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\obj\Debug\ExampleProject.Service.Common.csprojAssemblyReference.cache
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\obj\Debug\ExampleProject.Service.Common.csproj.CoreCompileInputs.cache
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\obj\Debug\ExampleProject.Service.Common.csproj.CopyComplete
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\obj\Debug\ExampleProject.Service.Common.dll
+C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Service.Common\obj\Debug\ExampleProject.Service.Common.pdb
