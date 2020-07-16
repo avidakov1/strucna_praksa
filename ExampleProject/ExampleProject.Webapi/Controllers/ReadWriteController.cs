@@ -18,7 +18,7 @@ namespace ExampleProject.Webapi.Controllers
         [Route("api/getallPerson")]
         public HttpResponseMessage Get()
         {
-            var persons = new List<personDTO>();
+            var persons = new List<PersonDTO>();
             using (var cnn = new SqlConnection(ReadWriteController.connectionString))
             {
                 SqlCommand comm = new SqlCommand("SELECT * FROM person",cnn);
@@ -28,7 +28,7 @@ namespace ExampleProject.Webapi.Controllers
                 {
                     while (rdr.Read())
                     {
-                        persons.Add(new personDTO(rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4)));
+                        persons.Add(new PersonDTO(rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4)));
                     }
                 }
                 rdr.Close();
@@ -43,7 +43,7 @@ namespace ExampleProject.Webapi.Controllers
         [HttpGet]
         public HttpResponseMessage GetInfo()
         {
-            var persons = new List<personInfoDTO>();
+            var persons = new List<PersonInfoDTO>();
             using (var cnn = new SqlConnection(ReadWriteController.connectionString))
             {
                 SqlCommand comm = new SqlCommand("SELECT first_name,last_name,position,pay,c_name FROM person RIGHT JOIN employee ON person.person_id = employee.person_id RIGHT JOIN company ON employee.company_id = company.company_id ", cnn);
@@ -53,7 +53,7 @@ namespace ExampleProject.Webapi.Controllers
                 {
                     while (rdr.Read())
                     {
-                        persons.Add(new personInfoDTO(rdr.GetString(0), rdr.GetString(1), rdr.GetString(2),rdr.GetDouble(3), rdr.GetString(4)));
+                        persons.Add(new PersonInfoDTO(rdr.GetString(0), rdr.GetString(1), rdr.GetString(2),rdr.GetDouble(3), rdr.GetString(4)));
                     }
                 }
                 rdr.Close();
@@ -68,7 +68,7 @@ namespace ExampleProject.Webapi.Controllers
         [Route("api/getonePerson/{id:int}")]
         public HttpResponseMessage Get(int id)
         {
-            personDTO searchedPerson = null;
+            PersonDTO searchedPerson = null;
             using (var cnn = new SqlConnection(ReadWriteController.connectionString))
             {
                 SqlCommand comm = new SqlCommand("SELECT * FROM person", cnn);
@@ -80,7 +80,7 @@ namespace ExampleProject.Webapi.Controllers
                     {
                         if (rdr.GetInt32(0) == id)
                         {
-                            searchedPerson = new personDTO(rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4));
+                            searchedPerson = new PersonDTO(rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4));
                         }
                     }
                 }
@@ -95,7 +95,7 @@ namespace ExampleProject.Webapi.Controllers
         }
 
         [Route("api/addPerson")]
-        public HttpResponseMessage Post([FromBody]personDTO value)
+        public HttpResponseMessage Post([FromBody]PersonDTO value)
         {
             try
             {
@@ -104,10 +104,10 @@ namespace ExampleProject.Webapi.Controllers
                     String query = "INSERT INTO person VALUES (@FirstName,@LastName, @Address,@Email)";
                     cnn.Open();
                     SqlCommand comm = new SqlCommand(query, cnn);
-                    comm.Parameters.AddWithValue("@FirstName", value.first_name);
-                    comm.Parameters.AddWithValue("@LastName", value.last_name);
-                    comm.Parameters.AddWithValue("@Address", value.p_address);
-                    comm.Parameters.AddWithValue("@Email", value.email);
+                    comm.Parameters.AddWithValue("@FirstName", value.FirstName);
+                    comm.Parameters.AddWithValue("@LastName", value.LastName);
+                    comm.Parameters.AddWithValue("@Address", value.PAddress);
+                    comm.Parameters.AddWithValue("@Email", value.Email);
                     comm.ExecuteNonQuery();
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, "Person added");
@@ -119,7 +119,7 @@ namespace ExampleProject.Webapi.Controllers
         }
 
         [Route("api/updatePerson/{id:int}")]
-        public HttpResponseMessage Put([FromUri] int id, [FromBody]personDTO value)
+        public HttpResponseMessage Put([FromUri] int id, [FromBody]PersonDTO value)
         {
             try
             {
@@ -128,10 +128,10 @@ namespace ExampleProject.Webapi.Controllers
                     String query = "UPDATE person SET first_name = @FirstName, last_name = @LastName, p_adress = @Adress, email = @Email WHERE person_id = @Id";
                     cnn.Open();
                     SqlCommand comm = new SqlCommand(query, cnn);
-                    comm.Parameters.AddWithValue("@FirstName", value.first_name);
-                    comm.Parameters.AddWithValue("@LastName", value.last_name);
-                    comm.Parameters.AddWithValue("@Adress", value.p_address);
-                    comm.Parameters.AddWithValue("@Email", value.email);
+                    comm.Parameters.AddWithValue("@FirstName", value.FirstName);
+                    comm.Parameters.AddWithValue("@LastName", value.LastName);
+                    comm.Parameters.AddWithValue("@Adress", value.PAddress);
+                    comm.Parameters.AddWithValue("@Email", value.Email);
                     comm.Parameters.AddWithValue("@Id", id);
                     comm.ExecuteNonQuery();
                 }
@@ -163,31 +163,31 @@ namespace ExampleProject.Webapi.Controllers
             }
         }
     }
-    public class personDTO
+    public class PersonDTO
     {
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string p_address { get; set; }
-        public string email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PAddress { get; set; }
+        public string Email { get; set; }
 
-        public personDTO (string pFirstName, string pLastName, string pAdress, string pEmail)
+        public PersonDTO (string pFirstName, string pLastName, string pAddress, string pEmail)
         {
-            this.first_name = pFirstName; this.last_name = pLastName; 
-            this.p_address = pAdress; this.email = pEmail;
+            this.FirstName = pFirstName; this.LastName = pLastName; 
+            this.PAddress = pAddress; this.Email = pEmail;
         }
     }
-    public class personInfoDTO
+    public class PersonInfoDTO
     {
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string position { get; set; }
-        public double pay { get; set; }
-        public string c_name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Position { get; set; }
+        public double Pay { get; set; }
+        public string CompanyName { get; set; }
 
-        public personInfoDTO(string pFirstName, string pLastName, string position, double pay, string companyName)
+        public PersonInfoDTO(string pFirstName, string pLastName, string position, double pay, string companyName)
         {
-            this.first_name = pFirstName; this.last_name = pLastName;
-            this.position = position; this.pay = pay; this.c_name = companyName;
+            this.FirstName = pFirstName; this.LastName = pLastName;
+            this.Position = position; this.Pay = pay; this.CompanyName = companyName;
         }
     }
 }
