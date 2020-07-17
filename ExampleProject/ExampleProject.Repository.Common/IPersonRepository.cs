@@ -11,11 +11,11 @@ namespace ExampleProject.Repository.Common
     public interface IPersonRepository
     {
         #region Methods
-        List<IPerson> GetPeople();
-        IPerson GetPerson(int id);
-        bool PostPerson(string firstName, string lastName, string pAddress, string email);
-        bool UpdatePerson(int id, PersonInfo personInfo);
-        bool DeletePerson(int id);
+        Task<List<Person>> GetPeople();
+        Task<Person> GetPerson(int id);
+        Task<bool> PostPerson(string firstName, string lastName, string pAddress, string email);
+        Task<bool> UpdatePerson(int id, PersonInfo personInfo);
+        Task<bool> DeletePerson(int id);
 
         #endregion Methods
 

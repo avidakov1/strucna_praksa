@@ -14,29 +14,31 @@ namespace ExampleProject.Service
     public class PersonService : IPersonService
     {
         private PersonRepository Repository = new PersonRepository();
-        public bool AddPerson(PersonInfo person)
+        public async Task<bool> AddPerson(PersonInfo person)
         {
-            return Repository.PostPerson(person.FirstName, person.LastName, person.PAddress, person.Email);
+            return await Repository.PostPerson(person.FirstName, person.LastName, person.PAddress, person.Email);
         }
 
-        public bool DeletePerson(int id)
+        public async Task<bool> DeletePerson(int id)
         {
-            return Repository.DeletePerson(id);
+            return await Repository.DeletePerson(id);
         }
 
-        public List<IPerson> GetPeople()
+        public async Task<List<Person>> GetPeople()
         {
-            return Repository.GetPeople();
+            return await Repository.GetPeople();
         }
 
-        public IPerson GetPerson(int id)
+        public async Task<Person> GetPerson(int id)
         {
-            return Repository.GetPerson(id);
+            return await Repository.GetPerson(id);
         }
 
-        public bool UpdatePerson(int id, PersonInfo personInfo)
+        public async Task<bool> UpdatePerson(int id, PersonInfo personInfo)
         {
-            return Repository.UpdatePerson(id, personInfo);
+            return await Repository.UpdatePerson(id, personInfo);
         }
     }
+
+    
 }

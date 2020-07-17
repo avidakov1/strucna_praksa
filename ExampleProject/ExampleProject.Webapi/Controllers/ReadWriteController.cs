@@ -10,6 +10,8 @@ using System.Web.UI.WebControls;
 using ExampleProject.Model.Common;
 using ExampleProject.Service;
 using ExampleProject.Model;
+using AutoMapper;
+using System.Threading.Tasks;
 
 namespace ExampleProject.Webapi.Controllers
 {    
@@ -17,34 +19,76 @@ namespace ExampleProject.Webapi.Controllers
     {
         private PersonService PService = new PersonService();
         [HttpGet]
-        [Route("api/getallPerson")]
-        public List<IPerson> Get()
+        [Route("api/getallPeople")]
+        public async Task<HttpResponseMessage> Get()
         {
-            return PService.GetPeople();
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Person, PersonRestModel>());
+            List<Person> People = new List<Person>(await PService.GetPeople());
+            if (People.Count == 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "No people found.");
+            }
+            var mapper = new Mapper(config);
+            List<PersonRestModel> PeopleREST = new List<PersonRestModel>();
+            foreach(Person person in People)
+            {
+                PersonRestModel PersonRest = mapper.Map<PersonRestModel>(person);
+                PeopleREST.Add(PersonRest);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, PeopleREST);
         }
         [HttpGet]
         [Route("api/getonePerson/{id:int}")]
-        public IPerson Get(int id)
+        public async Task<HttpResponseMessage> Get(int id)
         {
-            return PService.GetPerson(id);
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Person, PersonRestModel>());
+            Person MyPerson = await PService.GetPerson(id);
+            if (MyPerson == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "No Person Found.");
+            }
+            var mapper = new Mapper(config);
+            return Request.CreateResponse(HttpStatusCode.OK, mapper.Map<PersonRestModel>(MyPerson));
         }
         [Route("api/addPerson")]
-        public bool Post([FromBody]PersonInfo value)
+        public async Task<HttpResponseMessage> Post([FromBody]PersonInfo value)
         {
-            return PService.AddPerson(value);
+            if (await PService.AddPerson(value))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "OK");
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest, "Bad Request");
         }
 
         [Route("api/updatePerson/{id:int}")]
-        public bool Put([FromUri] int id, [FromBody]PersonInfo value)
+        public async Task<HttpResponseMessage> Put([FromUri] int id, [FromBody]PersonInfo value)
         {
-            return PService.UpdatePerson(id, value);
+            if (await PService.UpdatePerson(id, value))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "OK");
+            };
+            return Request.CreateResponse(HttpStatusCode.NotFound, "Not Found");
         }
 
         [Route("api/remove/{id:int}")]
-        public bool Delete([FromUri] int id)
+        public async Task<HttpResponseMessage> HttpResponseMessage([FromUri] int id)
         {
-            return PService.DeletePerson(id);
+            if (await PService.DeletePerson(id))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "OK");
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest, "Bad Request");
         }
     }
-    
+    class PersonRestModel
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PAddress { get; set; }
+        public string Email { get; set; }
+        public PersonRestModel(string firstName, string lastName, string pAddress, string email)
+        {
+            FirstName = firstName; LastName = lastName; PAddress = pAddress; Email = email;
+        }
+    }
 }
