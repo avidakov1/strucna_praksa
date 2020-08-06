@@ -10,10 +10,10 @@ namespace ExampleProject.Service.Common
 {
     public interface IPersonService
     {
-        Task<List<IPerson>> GetPeople();
-        Task<IPerson> GetPerson(int id);
+        Task<List<Person>> GetPeople();
+        Task<Person> GetPerson(Guid id);
         Task<bool> AddPerson(PersonInfo person);
-        Task<bool> UpdatePerson(int id, PersonInfo personInfo);
-        Task<bool> DeletePerson(int id);
+        Task<bool> UpdatePerson(Guid id, PersonInfo personInfo);
+        Task<bool> DeletePerson(Guid id);
     }
 }

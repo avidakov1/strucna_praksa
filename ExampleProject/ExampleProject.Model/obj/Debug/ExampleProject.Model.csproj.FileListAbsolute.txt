@@ -1,9 +1,0 @@
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\bin\Debug\ExampleProject.Model.dll
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\bin\Debug\ExampleProject.Model.pdb
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\bin\Debug\ExampleProject.Model.Common.dll
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\bin\Debug\ExampleProject.Model.Common.pdb
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\obj\Debug\ExampleProject.Model.csprojAssemblyReference.cache
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\obj\Debug\ExampleProject.Model.csproj.CoreCompileInputs.cache
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\obj\Debug\ExampleProject.Model.csproj.CopyComplete
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\obj\Debug\ExampleProject.Model.dll
-C:\Users\avida\Desktop\strucna praksa\ExampleProject\ExampleProject.Model\obj\Debug\ExampleProject.Model.pdb

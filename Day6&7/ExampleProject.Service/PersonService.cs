@@ -21,25 +21,25 @@ namespace ExampleProject.Service
         }
         public async Task<bool> AddPerson(PersonInfo person)
         {
-            return await RepositoryResolver.PostPerson(person.FirstName, person.LastName, person.PAddress, person.Email);
+            return await RepositoryResolver.PostPerson(person);
         }
 
-        public async Task<bool> DeletePerson(int id)
+        public async Task<bool> DeletePerson(Guid id)
         {
             return await RepositoryResolver.DeletePerson(id);
         }
 
-        public async Task<List<IPerson>> GetPeople()
+        public async Task<List<Person>> GetPeople()
         {
             return await RepositoryResolver.GetPeople(); ;
         }
 
-        public async Task<IPerson> GetPerson(int id)
+        public async Task<Person> GetPerson(Guid id)
         {
             return await RepositoryResolver.GetPerson(id);
         }
 
-        public async Task<bool> UpdatePerson(int id, PersonInfo personInfo)
+        public async Task<bool> UpdatePerson(Guid id, PersonInfo personInfo)
         {
             return await RepositoryResolver.UpdatePerson(id, personInfo);
         }

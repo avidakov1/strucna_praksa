@@ -15,17 +15,17 @@ namespace ExampleProject.Repository
     public class PersonRepository : IPersonRepository
     {
         private static string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=example;Integrated Security=True";
-        public async Task<bool> DeletePerson(int id)
+        public async Task<bool> DeletePerson(Guid id)
         { 
             try
             {
                 using (var cnn = new SqlConnection(PersonRepository.connectionString))
                 {
-                    String query = "DELETE person WHERE person_id = @Id";
+                    String query = "DELETE person WHERE id = @Id";
                     cnn.Open();
                     SqlCommand comm = new SqlCommand(query, cnn);
                     comm.Parameters.AddWithValue("@Id", id);
-                    comm.ExecuteNonQueryAsync();
+                    await comm.ExecuteNonQueryAsync();
                 }
                 return true;
             }
@@ -36,12 +36,12 @@ namespace ExampleProject.Repository
             }
         }
 
-        public async Task<List<IPerson>> GetPeople()
+        public async Task<List<Person>> GetPeople()
         {
-            var People = new List<IPerson>();
+            var People = new List<Person>();
             using (var cnn = new SqlConnection(PersonRepository.connectionString))
             {
-                SqlCommand comm = new SqlCommand("SELECT * FROM person", cnn);
+                SqlCommand comm = new SqlCommand("select * from person;", cnn);
                 cnn.Open();
                 SqlDataReader rdr = await comm.ExecuteReaderAsync();
                 if (rdr.HasRows)
@@ -49,11 +49,10 @@ namespace ExampleProject.Repository
                     while (rdr.Read())
                     {
                         Person Person = new Person();
-                        Person.Id = rdr.GetInt32(0);
+                        Person.Id = rdr.GetGuid(0);
                         Person.FirstName = rdr.GetString(1);
                         Person.LastName = rdr.GetString(2);
-                        Person.PAddress = rdr.GetString(3);
-                        Person.Email = rdr.GetString(4);
+                        Person.DOB = rdr.GetDateTime(3);
                         People.Add(Person);
                     }
                 }
@@ -62,12 +61,12 @@ namespace ExampleProject.Repository
             return People;
         }
 
-        public async Task<IPerson> GetPerson(int id)
+        public async Task<Person> GetPerson(Guid id)
         {
-            IPerson MyPerson = null;
+            Person MyPerson = null;
             using (var cnn = new SqlConnection(PersonRepository.connectionString))
             {
-                SqlCommand comm = new SqlCommand("SELECT * FROM person WHERE person_id = @Id", cnn);
+                SqlCommand comm = new SqlCommand("SELECT * FROM person WHERE id = @Id", cnn);
                 comm.Parameters.AddWithValue("@Id", id);
                 cnn.Open();
                 SqlDataReader rdr = await comm.ExecuteReaderAsync();
@@ -75,14 +74,13 @@ namespace ExampleProject.Repository
                 {
                     while (rdr.Read())
                     {
-                        if (id == rdr.GetInt32(0))
+                        if (id == rdr.GetGuid(0))
                         {
                             MyPerson = new Person();
                             MyPerson.Id = id;
                             MyPerson.FirstName = rdr.GetString(1);
                             MyPerson.LastName = rdr.GetString(2);
-                            MyPerson.PAddress = rdr.GetString(3);
-                            MyPerson.Email = rdr.GetString(4);
+                            MyPerson.DOB = rdr.GetDateTime(3);
                         }
                     }
                 }
@@ -91,45 +89,43 @@ namespace ExampleProject.Repository
             return MyPerson;
         }
 
-        public async Task<bool> PostPerson(string firstName, string lastName, string pAddress, string email)
+        public async Task<bool> PostPerson(PersonInfo person)
         {
             try
             {
                 using (var cnn = new SqlConnection(PersonRepository.connectionString))
                 {
-                    String query = "INSERT INTO person VALUES (@FirstName,@LastName, @Address,@Email)";
+                    String query = "INSERT INTO person VALUES (default,@FirstName,@LastName, @Dob);";
                     cnn.Open();
                     SqlCommand comm = new SqlCommand(query, cnn);
-                    comm.Parameters.AddWithValue("@FirstName", firstName);
-                    comm.Parameters.AddWithValue("@LastName", lastName);
-                    comm.Parameters.AddWithValue("@Address", pAddress);
-                    comm.Parameters.AddWithValue("@Email", email);
-                    comm.ExecuteNonQueryAsync();
+                    comm.Parameters.AddWithValue("@FirstName", person.FirstName);
+                    comm.Parameters.AddWithValue("@LastName", person.LastName);
+                    comm.Parameters.AddWithValue("@Dob", person.DOB);
+                    await comm.ExecuteNonQueryAsync();
                 }
                 return true;
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine(e);
+                System.Diagnostics.Debug.WriteLine("Here");
                 return false;
             }
         }
 
-        public async Task<bool> UpdatePerson(int id, PersonInfo personInfo)
+        public async Task<bool> UpdatePerson(Guid id, PersonInfo personInfo)
         {
             try
             {
                 using (var cnn = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE person SET first_name = @FirstName, last_name = @LastName, p_address = @Adress, email = @Email WHERE person_id = @Id";
+                    string query = "UPDATE person SET first_name = @FirstName, last_name = @LastName, date_of_birth = @DOB WHERE id = @Id";
                     cnn.Open();
                     SqlCommand comm = new SqlCommand(query, cnn);
-                    comm.Parameters.AddWithValue("@FirstName", personInfo.FirstName.ToString());
-                    comm.Parameters.AddWithValue("@LastName", personInfo.LastName.ToString());
-                    comm.Parameters.AddWithValue("@Adress", personInfo.PAddress.ToString());
-                    comm.Parameters.AddWithValue("@Email", personInfo.Email.ToString());
+                    comm.Parameters.AddWithValue("@FirstName", personInfo.FirstName);
+                    comm.Parameters.AddWithValue("@LastName", personInfo.LastName);
+                    comm.Parameters.AddWithValue("@DOB", personInfo.DOB);
                     comm.Parameters.AddWithValue("@Id", id);
-                    comm.ExecuteNonQueryAsync();
+                    await comm.ExecuteNonQueryAsync();
                 }
                 return true;
             }

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ExampleProject.Model.Common
 {
-    public class IPersonInfo
+    public interface IPersonInfo
     {
         string FirstName { get; set; }
         string LastName { get; set; }
-        string PAddress { get; set; }
-        string Email { get; set; }
+        DateTime DOB { get; set; }
     }
 }
