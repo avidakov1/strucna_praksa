@@ -1,13 +1,9 @@
 import React from "react";
 import "./App.css";
-import PersonTable from "./Components/PersonTable";
+import PersonTable from "./Components/PersonTable.jsx";
 
 function App() {
-  return (
-    <div className="App">
-      <PersonTable />
-    </div>
-  );
+  return <PersonTable />;
 }
 
 export default App;
